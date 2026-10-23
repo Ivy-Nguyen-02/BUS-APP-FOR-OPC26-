@@ -1,12 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { Check } from 'lucide-react'
+import { Check, Headset } from 'lucide-react'
 import { useEmergencyContact } from '@/lib/persistent-store'
 import { speak } from '@/lib/speech'
 import { BackBar } from './back-bar'
 
 const INTRO = 'Lưu số người thân. Nhập tên và số điện thoại, sau đó nhấn nút Lưu màu xanh lá ở cuối màn hình.'
+const BUS_HOTLINE = '1022'
 
 type Props = { onDone: () => void; onBack: () => void }
 
@@ -32,6 +33,21 @@ export function CallSetupView({ onDone, onBack }: Props) {
   return (
     <div className="flex flex-1 flex-col">
       <BackBar title="Số người thân" onBack={onBack} onRepeat={() => speak(INTRO)} />
+
+      <a
+        href={`tel:${BUS_HOTLINE}`}
+        onClick={() => speak('Đang gọi tổng đài xe buýt.', { remember: false })}
+        aria-label={`Gọi tổng đài xe buýt, số ${BUS_HOTLINE.split('').join(' ')}`}
+        className="mb-5 flex items-center gap-4 rounded-3xl bg-a11y-red p-4 text-white shadow-md focus-visible:outline-none focus-visible:ring-8 focus-visible:ring-a11y-red/40"
+      >
+        <span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-white text-a11y-red">
+          <Headset className="size-9" aria-hidden="true" />
+        </span>
+        <span className="flex flex-col">
+          <span className="text-xl font-extrabold">Tổng đài xe buýt</span>
+          <span className="text-3xl font-extrabold tabular-nums tracking-wider">{BUS_HOTLINE}</span>
+        </span>
+      </a>
 
       <form onSubmit={save} className="flex flex-1 flex-col gap-5">
         <div className="flex flex-col gap-2">

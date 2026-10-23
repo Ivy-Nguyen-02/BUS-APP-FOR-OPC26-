@@ -1,7 +1,7 @@
 'use client'
 
 import { useActionState, useState } from 'react'
-import { Eye, EyeOff, Loader2, Lock, LogIn, User } from 'lucide-react'
+import { Eye, EyeOff, Info, Loader2, Lock, LogIn, User } from 'lucide-react'
 import { loginDriver, type LoginState } from '@/app/tai-xe/actions'
 
 export function DriverLoginForm() {
@@ -68,6 +68,13 @@ export function DriverLoginForm() {
         {pending ? <Loader2 className="size-5 animate-spin" aria-hidden="true" /> : <LogIn className="size-5" aria-hidden="true" />}
         {pending ? 'Đang xác thực…' : 'Đăng nhập'}
       </button>
+
+      <p className="flex gap-3 rounded-xl bg-driver-soft p-4 text-sm text-driver">
+        <Info className="mt-0.5 size-5 shrink-0" aria-hidden="true" />
+        <span>
+          Tài khoản thử nghiệm: <strong>busapp</strong> / <strong>oisp2026</strong>
+        </span>
+      </p>
     </form>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { Camera, MapPin, UsersRound } from 'lucide-react'
+import { Camera, Eye, MapPin, UsersRound } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export type DriverStop = {
@@ -11,6 +11,7 @@ export type DriverStop = {
   meters: number
   etaMin: number
   waiting: number
+  assisted: boolean
 }
 
 function formatDistance(m: number) {
@@ -54,6 +55,15 @@ export function StopAssistant({ nextStop, stops }: { nextStop: DriverStop; stops
               <p className="text-sm font-semibold">người đang chờ tại trạm</p>
             </div>
           </div>
+          {nextStop.assisted && (
+            <p
+              role="status"
+              className="mt-3 flex items-center gap-2 rounded-xl bg-orange-100 px-4 py-3 text-sm font-bold text-orange-900"
+            >
+              <Eye className="size-5 shrink-0" aria-hidden="true" />
+              Có hành khách khiếm thị cần hỗ trợ lên xe
+            </p>
+          )}
           <p className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground">
             <span className="size-2 rounded-full bg-emerald-500" aria-hidden="true" />
             Camera AI đếm người · cập nhật trực tiếp
@@ -75,6 +85,12 @@ export function StopAssistant({ nextStop, stops }: { nextStop: DriverStop; stops
                   {formatDistance(stop.meters)} · {stop.etaMin} phút
                 </p>
               </div>
+              {stop.assisted && (
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-orange-100 text-orange-900">
+                  <Eye className="size-4" aria-hidden="true" />
+                  <span className="sr-only">Có hành khách khiếm thị cần hỗ trợ</span>
+                </span>
+              )}
               <span
                 className={cn('flex items-center gap-1 rounded-lg px-2 py-1 text-sm font-bold tabular-nums', crowdTone(stop.waiting))}
                 aria-label={`${stop.waiting} người đang chờ`}

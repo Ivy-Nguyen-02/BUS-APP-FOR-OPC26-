@@ -11,15 +11,16 @@ export const MAP_COLORS = {
   jam: '#dc2626',
 } as const
 
+// `assisted`: a visually impaired rider has requested boarding help at this stop.
 export const ROUTE_08_STOPS = [
-  { id: 'bx-q8', name: 'Bến xe Quận 8' },
-  { id: 'bach-khoa', name: 'ĐH Bách Khoa' },
-  { id: 'bay-hien', name: 'Ngã tư Bảy Hiền' },
-  { id: 'hoang-van-thu', name: 'Công viên Hoàng Văn Thụ' },
-  { id: 'phu-nhuan', name: 'Ngã tư Phú Nhuận' },
-  { id: 'hang-xanh', name: 'Ngã tư Hàng Xanh' },
-  { id: 'thu-duc', name: 'Ngã tư Thủ Đức' },
-  { id: 'dhqg', name: 'ĐH Quốc gia' },
+  { id: 'bx-q8', name: 'Bến xe Quận 8', assisted: false },
+  { id: 'bach-khoa', name: 'ĐH Bách Khoa', assisted: true },
+  { id: 'bay-hien', name: 'Ngã tư Bảy Hiền', assisted: false },
+  { id: 'hoang-van-thu', name: 'Công viên Hoàng Văn Thụ', assisted: false },
+  { id: 'phu-nhuan', name: 'Ngã tư Phú Nhuận', assisted: false },
+  { id: 'hang-xanh', name: 'Ngã tư Hàng Xanh', assisted: false },
+  { id: 'thu-duc', name: 'Ngã tư Thủ Đức', assisted: true },
+  { id: 'dhqg', name: 'ĐH Quốc gia', assisted: false },
 ].map((stop, index) => ({ ...stop, position: STOP_COORDS[index] as LatLng }))
 
 export const ROUTE_08_SEGMENTS = ROUTE_SEGMENTS as LatLng[][]
