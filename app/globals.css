@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-be-vietnam), ui-sans-serif, system-ui, sans-serif;
+  --color-passenger: var(--passenger);
+  --color-passenger-foreground: var(--passenger-foreground);
+  --color-passenger-soft: var(--passenger-soft);
+  --color-driver: var(--driver);
+  --color-driver-foreground: var(--driver-foreground);
+  --color-driver-soft: var(--driver-soft);
+  --color-a11y-yellow: var(--a11y-yellow);
+  --color-a11y-red: var(--a11y-red);
+  --color-a11y-blue: var(--a11y-blue);
+  --color-a11y-green: var(--a11y-green);
+  --color-a11y-purple: var(--a11y-purple);
+  --color-a11y-orange: var(--a11y-orange);
+  --color-traffic-free: var(--traffic-free);
+  --color-traffic-busy: var(--traffic-busy);
+  --color-traffic-jam: var(--traffic-jam);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.2 0.02 160);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.02 160);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.02 160);
+  --primary: oklch(0.56 0.15 152);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0.03 152);
+  --secondary-foreground: oklch(0.32 0.08 152);
+  --muted: oklch(0.97 0.005 160);
+  --muted-foreground: oklch(0.48 0.02 160);
+  --accent: oklch(0.95 0.04 152);
+  --accent-foreground: oklch(0.3 0.08 152);
+  --destructive: oklch(0.56 0.22 27);
+  --border: oklch(0.92 0.01 160);
+  --input: oklch(0.9 0.01 160);
+  --ring: oklch(0.56 0.15 152);
+  --radius: 0.875rem;
+
+  --passenger: oklch(0.56 0.15 152);
+  --passenger-foreground: oklch(1 0 0);
+  --passenger-soft: oklch(0.96 0.04 152);
+  --driver: oklch(0.47 0.17 258);
+  --driver-foreground: oklch(1 0 0);
+  --driver-soft: oklch(0.95 0.03 258);
+
+  --a11y-yellow: oklch(0.87 0.17 95);
+  --a11y-red: oklch(0.55 0.22 27);
+  --a11y-blue: oklch(0.48 0.2 262);
+  --a11y-green: oklch(0.52 0.15 150);
+  --a11y-purple: oklch(0.47 0.2 305);
+  --a11y-orange: oklch(0.74 0.17 55);
+
+  --traffic-free: oklch(0.62 0.17 150);
+  --traffic-busy: oklch(0.8 0.16 85);
+  --traffic-jam: oklch(0.58 0.22 27);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
