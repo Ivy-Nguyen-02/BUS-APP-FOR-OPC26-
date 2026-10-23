@@ -17,7 +17,7 @@ function LiveClock() {
     ? now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })
     : '--:--:--'
   return (
-    <span className="font-mono text-2xl font-bold tabular-nums tracking-tight" suppressHydrationWarning>
+    <span className="font-mono text-xl font-bold tabular-nums tracking-tight sm:text-2xl" suppressHydrationWarning>
       {text}
     </span>
   )
@@ -47,7 +47,7 @@ export function ScheduleBadge({ deviationSeconds }: { deviationSeconds: number }
   return (
     <span
       className={cn(
-        'flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-bold',
+        'flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-lg px-2.5 py-1.5 text-sm font-bold sm:px-3',
         status === 'on-time' && 'bg-emerald-600 text-white',
         status === 'late' && 'bg-red-600 text-white',
         status === 'early' && 'bg-amber-400 text-amber-950',
@@ -87,16 +87,16 @@ export function StatusBar({ route, vehicle, driverName, deviationSeconds }: Prop
         <ConnectionPill icon={Camera} label="Camera AI" />
       </div>
 
-      <div className="ml-auto flex items-center gap-3">
+      <div className="ml-auto flex items-center gap-2 sm:gap-3">
         <ScheduleBadge deviationSeconds={deviationSeconds} />
         <LiveClock />
-        <SwitchRoleButton tone="driver" />
+        <SwitchRoleButton tone="driver" compact />
         <form action={logoutDriver}>
           <button
             type="submit"
             aria-label="Đăng xuất"
             title="Đăng xuất"
-            className="flex size-10 items-center justify-center rounded-full border text-muted-foreground hover:bg-muted hover:text-foreground"
+            className="flex size-10 shrink-0 items-center justify-center rounded-full border text-muted-foreground hover:bg-muted hover:text-foreground"
           >
             <LogOut className="size-4.5" aria-hidden="true" />
           </button>

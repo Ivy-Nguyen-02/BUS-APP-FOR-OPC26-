@@ -116,15 +116,15 @@ export function QuickActions({ position }: { position: LatLng }) {
           type="button"
           onClick={() => send('traffic')}
           disabled={pending}
-          className="flex h-24 items-center justify-center gap-3 rounded-2xl bg-amber-400 px-4 text-amber-950 shadow-md transition active:scale-[0.98] disabled:opacity-70 sm:h-28"
+          className="flex min-h-28 flex-col items-center justify-center gap-2 rounded-2xl bg-amber-400 px-3 py-3 text-amber-950 sm:flex-row sm:gap-3 sm:px-4 shadow-md transition active:scale-[0.98] disabled:opacity-70 sm:h-28"
         >
           {pendingKind === 'traffic' ? (
             <Loader2 className="size-10 animate-spin" aria-hidden="true" />
           ) : (
             <TrafficCone className="size-10 shrink-0" strokeWidth={2.2} aria-hidden="true" />
           )}
-          <span className="text-left leading-tight">
-            <span className="block text-lg font-extrabold sm:text-xl">Báo kẹt xe / Sự cố</span>
+          <span className="text-center leading-tight sm:text-left">
+            <span className="block text-base font-extrabold text-balance sm:text-xl">Báo kẹt xe / Sự cố</span>
             <span className="text-xs font-semibold opacity-80 sm:text-sm">Chạm 1 lần để gửi tọa độ</span>
           </span>
         </button>
@@ -142,7 +142,7 @@ export function QuickActions({ position }: { position: LatLng }) {
           onContextMenu={(e) => e.preventDefault()}
           disabled={pending}
           aria-label="Gửi tín hiệu khẩn cấp SOS. Nhấn giữ 2 giây"
-          className="relative flex h-24 touch-none select-none items-center justify-center gap-3 overflow-hidden rounded-2xl bg-red-600 px-4 text-white shadow-md disabled:opacity-70 sm:h-28"
+          className="relative flex min-h-28 touch-none select-none flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl bg-red-600 px-3 py-3 text-white sm:flex-row sm:gap-3 sm:px-4 shadow-md disabled:opacity-70 sm:h-28"
         >
           <span
             className="absolute inset-y-0 left-0 bg-red-900/60"
@@ -154,8 +154,8 @@ export function QuickActions({ position }: { position: LatLng }) {
           ) : (
             <Siren className={cn('relative size-10 shrink-0', holdProgress > 0 && 'animate-pulse')} strokeWidth={2.2} aria-hidden="true" />
           )}
-          <span className="relative text-left leading-tight">
-            <span className="block text-lg font-extrabold sm:text-xl">SOS khẩn cấp</span>
+          <span className="relative text-center leading-tight sm:text-left">
+            <span className="block text-base font-extrabold text-balance sm:text-xl">SOS khẩn cấp</span>
             <span className="text-xs font-semibold opacity-90 sm:text-sm">
               {holdProgress > 0 ? `Tiếp tục giữ… ${holdSecondsLeft}s` : 'Nhấn giữ 2 giây'}
             </span>
